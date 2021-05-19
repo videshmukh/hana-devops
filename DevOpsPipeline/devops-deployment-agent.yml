@@ -23,12 +23,11 @@ parameters:
   values:
   - "West Europe"
   - "North Europe"
-  - "Germany West Central"
 
 - name: vnet_subnet
   displayName: Target VNET & Subnet
   type: string
-  default: "HUBWEU/subnets/admin-subnet"
+  default: "hubweu/subnets/admin-subnet"
   values:
   - "azprhub-vnet/azprmgmt-subnet"
   - "azprhubne-vnet/azprmgmt-subnet"
