@@ -14,7 +14,7 @@ parameters:
 - name: rg
   displayName: Target Resource Group
   type: string
-  default: "rg-devopsagent"
+  default: "azprwehub"
 
 - name: location
   displayName: Target Region
@@ -30,8 +30,8 @@ parameters:
   type: string
   default: "HUBWEU/subnets/admin-subnet"
   values:
-  - "HUBWEU/subnets/admin-subnet"
-  - "HUBNEU/subnets/admin-subnet"
+  - "azprhub-vnet/azprmgmt-subnet"
+  - "azprhubne-vnet/azprmgmt-subnet"
   # Adapt according to your target landing zone
   # "<VNET>/subnets/<subnet>"
 
@@ -61,7 +61,7 @@ steps:
         resourceGroupName: ${{ parameters.rg }}
         location: ${{ parameters.location }}
         templateLocation: 'URL of the file'
-        csmFileLink: 'https://raw.githubusercontent.com/$(git_user)/sap-hana-vm/$(Build.SourceBranchName)/ARM-Template/devops-deployment-agent.json'
+        csmFileLink: 'https://raw.githubusercontent.com/$(git_user)/hana-devops/$(Build.SourceBranchName)/ARM-Template/devops-deployment-agent.json'
         overrideParameters: '-adminUsername "$(adminuser)" -adminPublicKey "$(sshkey)" -virtualMachineName "${{ parameters.vmname }}" -virtualMachineComputerName "${{ parameters.hostname }}" -subnetId "$(subnetid)" -Script_URL "$(url-agent-cfg)" -diagnosticsStorageAccountName "$(diagnosticsStorageAccountName)" '
         deploymentMode: 'Complete'
         deploymentName: 'devops-deployment-agent-$(Build.BuildId)'
