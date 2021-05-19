@@ -57,7 +57,7 @@ parameters:
 - name: vnet_subnet
   displayName: Target VNET & Subnet
   type: string
-  default: "SAPDemoVnet/subnets/hdb-subnet"
+  default: "azprwesapsles-vnet/subnets/azsapdb-subnet"
   values:
   - "SAPDemoNest/subnets/hdb-subnet"
   - "azprwesapsles-vnet/subnets/azsapdb-subnet"
