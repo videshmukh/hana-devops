@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vaultName": {
-            "value": "vault" 
+            "value": "azprvlt01" 
         },
         "vaultRG": {
-            "value": "vaultrg" 
+            "value": "azprwehub" 
         },
         "vaultSubID": {
-            "value": "subscription" 
+            "value": "30c2b652-2898-4e2c-8e2a-27758fec3501" 
         },
         "backupManagementType": {
             "value": "AzureWorkload"
@@ -32,7 +32,7 @@
         },
         "sourceResourceIds": {
             "value": [
-                "/subscriptions/subscription-id/resourceGroups/rg-of-vm/providers/Microsoft.Compute/virtualMachines/vmname" 
+                "/subscriptions/30c2b652-2898-4e2c-8e2a-27758fec3501/resourceGroups/AZPRWESAPSLES-RG/providers/Microsoft.Compute/virtualMachines/hanadev" 
             ]
         },
         "operationType": {
