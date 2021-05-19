@@ -105,7 +105,7 @@ Note: Eds_v4 Series use premium disk without write accellerations, therefore thi
 		* User a puplic ssh-key 
 	* Option B) With this ARM-Template
 	
-		[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmimergel%2Fsap-hana-vm%2Fbeta%2FARM-Template%2Fdevops-deployment-agent.json) 
+		[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprasroy%2Fhana-devops%2Fbeta%2Fdep-agent%2Fdevops-deployment-agent.json) 
 
 		* Complete the DevOps Deployment Agent Setup with
 			1. login with your ssh user and `cd devopsagent ; ./config.sh` -> follow the prompts and enter required information, have the PAT (personal access token) from DevOps ready [see here where to retrieve the PAT](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops#authenticate-with-a-personal-access-token-pat)
@@ -120,7 +120,7 @@ Note: Eds_v4 Series use premium disk without write accellerations, therefore thi
 3. In the DevOps Pipeline Area
 	* Create a "New Pipeline" 
 	* Where is your code? => "GitHub" 
-	* Select a repository => "<git-user>/sap-devops" 
+	* Select a repository => "<git-user>/hana-devops" 
 	* Configure your pipeline => "Existing Azure Pipeline YAML file"
 	* Branch "Main" 
 	* Path "/DevOpsPipeline/azure-pipelines.yml" 
@@ -130,16 +130,11 @@ Note: Eds_v4 Series use premium disk without write accellerations, therefore thi
 4. Enter your required variables to the pipeline configuration, [example here](./Documentation/Images/variables.jpg)
 5. Add the [Ansible Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.vss-services-ansible) to your DevOps Project
 6. Download the SAP Binaries IMDB_SERVER*, HCMT* & SAPCAR* and store them in a storage container. Get the new URLs from for the files and update the variables `url_sapcar`, `url_hdbserver`, `url_hcmt` in `Ansible/vars/defaults.yml` 
-7. Upload [diskConfig.sh](https://raw.githubusercontent.com/mimergel/sap-hana-vm/main/Scripts/diskConfig.sh) in the container and adapt variables `url-disk-cfg` in the Pipeline
+7. Upload [diskConfig.sh](https://raw.githubusercontent.com/prasroy/hana-devops/main/Scripts/diskConfig.sh) in the container and adapt variables `url-disk-cfg` in the Pipeline
 8. Upload [msawb-plugin-config-com-sap-hana.sh](https://aka.ms/ScriptForPermsOnHANA?clcid=0x0409) to the container and adapt variable `url_msawb_plugin` in `Ansible/vars/defaults.yml` 
 9. Adapt Target Subnet parameter, section: `- name: vnet_subnet` in the pipeline to match your landing zone target
 10. Setup the [Azure Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure) in [project settings](./Documentation/Images/azure-service-connection.jpg)
 11. Run the pipeline
-
-
-### Todo in future releases
-* ASCS & DI Installation
-* Cluster Setup 
 
 
 ### Troubleshooting
