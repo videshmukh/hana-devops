@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "azureuser"
+    },
+    "vmNameInput": {
+      "value": "hanatest"
+    },
+    "hanaSystemSize": {
+      "value": "256_GB"
+    },
+    "location": {
+      "value": "Europe West"
+    },
+    "osType": {
+      "value": "SLES 12 SP5"
+    },
+    "adminPasswordOrKey": {
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAr2zzJGCzNlgBPFPqYV0Ko2blSxk7ilbwzsN1UxH5EKLcHgIwQDljTMvZvvLhfBgEllkRvyotlZ+b+5rHP/rZ18mY/LLUc4pHQnXOFhs+SbzxAURwsStN+qKFx6+ZyJh0Kul4ZiIMm5S9LaX5jLrcvP2uRxi35/sYkrb53AK+b2HM7wxMpeOXJ9PHWOqRvMXZ/Dqlfn4oliDLh6UKwvABx7azWjRABs+X0nPwChPCRTXMJ5PC4iD+1CAcJpFhxHPzL13NWVoZqK1JgN4G0/4pcwI0XCFXHiAKs7sfbAMdMXesyrSQqLZ9grDDWbj5k8gbd4zW0Ig/tOFR32+WsDsxIQ=="
+    },
+    "Owner": {
+      "value": "SAP Team Contact"
+    },
+    "CostCenter": {
+      "value": "19890426"
+    },
+    "subnetId": {
+      "value": "/subscriptions/30c2b652-2898-4e2c-8e2a-27758fec3501/resourceGroups/azprwesapsles-rg/providers/Microsoft.Network/virtualNetworks/azprwesapsles-vnet"
+    }
+  }
+}
