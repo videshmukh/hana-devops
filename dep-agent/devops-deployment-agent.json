@@ -69,7 +69,7 @@
             "apiVersion": "2018-10-01",
             "name": "[variables('networkInterfaceName')]",
             "location": "[parameters('location')]",
-            "tags": {"cost-center": "[parameters('Department')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://tbd."},
+            "tags": {"department": "[parameters('Department')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://tbd."},
             "dependsOn": [],
             "properties": {
                 "ipConfigurations": [
@@ -90,7 +90,7 @@
             "apiVersion": "2018-10-01",
             "name": "[parameters('virtualMachineName')]",
             "location": "[parameters('location')]",
-            "tags": {"cost-center": "[parameters('Department')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://azprsapdevops.sap.contoo.com"},
+            "tags": {"department": "[parameters('Department')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://azprsapdevops.sap.contoo.com"},
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]"
             ],
@@ -147,7 +147,7 @@
             "name": "[concat(parameters('virtualMachineName'), '/', variables('csExtension')[variables('internalOSType')].Name)]",
             "apiVersion": "2018-10-01",
             "location": "[parameters('location')]",
-            "tags": {"cost-center": "[parameters('Department')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://azprsapdevops.sap.contoo.com"},
+            "tags": {"department": "[parameters('Department')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://azprsapdevops.sap.contoo.com"},
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
             ],

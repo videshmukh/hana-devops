@@ -23,7 +23,7 @@ parameters:
 - name: os
   displayName: Operating System
   type: string
-  default: "SLES 12 SP4"
+  default: "SLES 12 SP5"
   values:
   - "RHEL 7"
   - "RHEL 8"
@@ -34,17 +34,17 @@ parameters:
 - name: sid
   displayName: HANA System ID
   type: string
-  default: "HDB"
+  default: "HD1"
 
 - name: nr
   displayName: HANA Instance Number (00-99)
   type: string
-  default: "20"
+  default: "10"
 
 - name: vmname
   displayName: HANA Server Name
   type: string
-  default: "hanatest"
+  default: "hanadev"
 
 - name: location
   displayName: Target Region
@@ -52,15 +52,15 @@ parameters:
   default: "West Europe"
   values:
   - "West Europe"
-  - "Germany West Central"
+  - "North Europe"
 
 - name: vnet_subnet
   displayName: Target VNET & Subnet
   type: string
-  default: "SAPDemoEnvironmentNetwork/subnets/sapdevsubnet"
+  default: "SAPDemoVnet/subnets/hdb-subnet"
   values:
-  - "SAPDemoEnvironmentNetwork/subnets/sapdevsubnet"
-  - "SAPSpokeGWC/subnets/sapdevsubnet"
+  - "SAPDemoNest/subnets/hdb-subnet"
+  - "azprwesapsles-vnet/subnets/azsapdb-subnet"
   # Adapt according to your target landing zone
   # "<VNET>/subnets/<subnet>"
 
@@ -113,7 +113,7 @@ variables:
   backuptype: ${{ parameters.hanabackupsetup }}
   backuptodo: $[ ne(variables['backuptype'], 'None') ]
   hanadbinst: ${{ parameters.hanadbinstallation }}
-  hanavmrg: rg-HANA-${{ parameters.sid }}
+  hanavmrg: rg-hdb-${{ parameters.sid }}
   hanavmfqdn: ${{ parameters.vmname }}.$(privatednszone)
   containersuffix: "$(hanavmrg);${{ parameters.vmname }}"
   hanabackupcontainer: "VMAppContainer;Compute;$(containersuffix)"
