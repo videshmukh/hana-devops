@@ -105,7 +105,7 @@ Note: Eds_v4 Series use premium disk without write accellerations, therefore thi
 		* User a puplic ssh-key 
 	* Option B) With this ARM-Template
 	
-		[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprasroy%2Fhana-devops%2Fbeta%2Fdep-agent%2Fdevops-deployment-agent.json) 
+		[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprasroy%2Fhana-devops%2Fmaster%2Fdep-agent%2Fdevops-deployment-agent.json) 
 
 		* Complete the DevOps Deployment Agent Setup with
 			1. login with your ssh user and `cd devopsagent ; ./config.sh` -> follow the prompts and enter required information, have the PAT (personal access token) from DevOps ready [see here where to retrieve the PAT](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops#authenticate-with-a-personal-access-token-pat)
