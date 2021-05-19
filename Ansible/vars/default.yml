@@ -38,7 +38,7 @@ email_shine: "shinedemo@microsoft.com"
 # ------------------------------------------------------------------------------------------------------------------------
 # -----------------------------URL for the Azure HANA Backint Integration Script------------------------------------------
 # Default:
-url_msawb_plugin: https://aka.ms/ScriptForPermsOnHANA?clcid=0x0409
+url_msawb_plugin: https://prlab.blob.core.windows.net/hanabits/scripts/msawb-plugin-config-com-sap-hana.sh
 # using own accessible storage account is required when internet access is blocked, example:
 # url_msawb_plugin: https://<your-own-storage-name>.blob.core.windows.net/sapdeployments/msawb-plugin-config-com-sap-hana.sh
 # ------------------------------------------------------------------------------------------------------------------------
