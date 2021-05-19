@@ -8,7 +8,7 @@
         },
         "subnetId": {
             "type": "String",
-            "defaultValue": "/subscriptions/35b67b4c-4fd4-4f0b-997c-bbb82032d45d/resourceGroups/SAPonAzureTrial/providers/Microsoft.Network/virtualNetworks/HUBWEU/subnets/admin-subnet"
+            "defaultValue": "/subscriptions/30c2b652-2898-4e2c-8e2a-27758fec3501/resourceGroups/azprwehub/providers/Microsoft.Network/virtualNetworks/azprhub-vnet/subnets/azprmgmt-subnet"
         },
         "virtualMachineName": {
             "type": "String",
@@ -28,26 +28,26 @@
         },
         "adminUsername": {
             "type": "String",
-            "defaultValue": "mimergel"
+            "defaultValue": "azureuser"
         },
         "adminPublicKey": {
             "type": "SecureString"
         },
         "diagnosticsStorageAccountName": {
             "type": "String",
-            "defaultValue": "saponazuretrialdiag"
+            "defaultValue": "azprwehubdiag"
         },
         "Script_URL": {
             "type": "string",
-            "defaultValue": "https://raw.githubusercontent.com/mimergel/sap-hana-vm/beta/Scripts/setup-deployment-agent.sh"
+            "defaultValue": "https://raw.githubusercontent.com/prasroy/hana-devops/master/Scripts/setup-deployment-agent.sh"
         },
         "Owner": {
             "type": "string",
-            "defaultValue": "Contact"
+            "defaultValue": "Prasenjit Roy"
         },
-        "CostCenter": {
+        "Department": {
             "type": "string",
-            "defaultValue": "123456"
+            "defaultValue": "Research & Develop"
         }
     },
     "variables": {
@@ -69,7 +69,7 @@
             "apiVersion": "2018-10-01",
             "name": "[variables('networkInterfaceName')]",
             "location": "[parameters('location')]",
-            "tags": {"cost-center": "[parameters('CostCenter')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://tbd."},
+            "tags": {"cost-center": "[parameters('Department')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://tbd."},
             "dependsOn": [],
             "properties": {
                 "ipConfigurations": [
@@ -90,7 +90,7 @@
             "apiVersion": "2018-10-01",
             "name": "[parameters('virtualMachineName')]",
             "location": "[parameters('location')]",
-            "tags": {"cost-center": "[parameters('CostCenter')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://tbd."},
+            "tags": {"cost-center": "[parameters('Department')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://azprsapdevops.sap.contoo.com"},
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]"
             ],
@@ -147,7 +147,7 @@
             "name": "[concat(parameters('virtualMachineName'), '/', variables('csExtension')[variables('internalOSType')].Name)]",
             "apiVersion": "2018-10-01",
             "location": "[parameters('location')]",
-            "tags": {"cost-center": "[parameters('CostCenter')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://tbd."},
+            "tags": {"cost-center": "[parameters('Department')]","application": "SAP","owner": "[parameters('Owner')]", "cmdb-link": "https://azprsapdevops.sap.contoo.com"},
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
             ],
