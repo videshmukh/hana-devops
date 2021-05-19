@@ -121,7 +121,7 @@
       "type": "string",
       "defaultValue": "20210519",
       "metadata": {
-        "description": "Provide mandatory Cost Center ID"
+        "description": "Provide department name"
       }
     },
     "Backup": {
