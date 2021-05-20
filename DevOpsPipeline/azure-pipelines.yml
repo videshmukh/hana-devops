@@ -148,7 +148,7 @@ stages:
         artifact: hana
 
     - task: AzureResourceManagerTemplateDeployment@3
-      displayName: 'SAP HANA VM Deployment via ARM'
+      displayName: 'SAP HANA VM Deployment via ARM Template'
       inputs:
         deploymentScope: 'Resource Group'
         azureResourceManagerConnection: '$(azureconnectionname)'
@@ -258,7 +258,7 @@ stages:
     steps:
     - checkout: none
     - task: AzureResourceManagerTemplateDeployment@3
-      displayName: 'Setup HANA Backup Container (ARM)'
+      displayName: 'Setup HANA Backup Container (ARM Template)'
       inputs:
         deploymentScope: 'Resource Group'
         azureResourceManagerConnection: '$(azureconnectionname)'
@@ -267,7 +267,7 @@ stages:
         resourceGroupName: '$(RSV_RG)'
         location: ${{ parameters.location }}
         templateLocation: 'URL of the file'
-        csmFileLink: 'https://raw.githubusercontent.com/$(git_user)/hana-devops/$(Build.SourceBranchName)/ARM-Template/backup-container.json'
+        csmFileLink: 'https://raw.githubusercontent.com/$(git_user)/hana-devops/$(Build.SourceBranchName)/hana-vm/backup-container.json'
         overrideParameters: '-vaultName "$(RSV)" -vaultRG "$(RSV_RG)" -vaultSubID "$(subscription)" -protectionContainers ["$(hanabackupcontainer)"] -sourceResourceIds ["$(hanavmid)"]'
         deploymentMode: 'Incremental'
         deploymentName: 'hana-backup-container-${{ parameters.sid }}-$(Build.BuildId)'
