@@ -157,7 +157,7 @@ stages:
         resourceGroupName: '$(hanavmrg)'
         location: ${{ parameters.location }}
         templateLocation: 'URL of the file'
-        csmFileLink: 'https://raw.githubusercontent.com/$(git_user)/hana-devops/$(Build.SourceBranchName)/ARM-Template/azuredeploy.json'
+        csmFileLink: 'https://raw.githubusercontent.com/$(git_user)/hana-devops/$(Build.SourceBranchName)/hana-vm/azuredeploy.json'
         overrideParameters: '-adminUsername "$(adminuser)" -vmNameInput "${{ parameters.vmname }}" -hanaSystemId "${{ parameters.sid }}" -hanaSystemSize "${{ parameters.size }}" -osType "${{ parameters.os }}" -adminPasswordOrKey "$(sshkey)" -subnetId "$(subnetid)" -Backup "${{ parameters.hanabackupsetup }}" -Script_URL "$(url-disk-cfg)" -Boot_Diag_URL "$(boot_diag_url)" '
         deploymentMode: 'Complete'
         deploymentName: 'hana-vm-${{ parameters.sid }}-$(Build.BuildId)'
