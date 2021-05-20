@@ -59,6 +59,9 @@
             "type": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers",
             "apiVersion": "2020-10-01",
             "name": "[concat(parameters('vaultName'), '/', parameters('fabricName'), '/',parameters('protectionContainers')[copyIndex()])]",
+            "dependsOn": [
+                "[resourceId('Microsoft.RecoveryServices/vaults', parameters('vaultName'))]"
+            ],
             "properties": {
                 "backupManagementType": "[parameters('backupManagementType')]",
                 "workloadType": "[parameters('workloadType')]",
