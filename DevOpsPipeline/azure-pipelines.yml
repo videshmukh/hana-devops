@@ -113,7 +113,7 @@ variables:
   backuptype: ${{ parameters.hanabackupsetup }}
   backuptodo: $[ ne(variables['backuptype'], 'None') ]
   hanadbinst: ${{ parameters.hanadbinstallation }}
-  hanavmrg: AZPRWESAPSLES-RG
+  hanavmrg: rg-HANA-${{ parameters.sid }}
   hanavmfqdn: ${{ parameters.vmname }}.$(privatednszone)
   containersuffix: "$(hanavmrg);${{ parameters.vmname }}"
   hanabackupcontainer: "VMAppContainer;Compute;$(containersuffix)"
