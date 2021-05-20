@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vaultName": {
-            "value": "azprvlt01" 
+            "value": "hdbvault" 
         },
         "vaultRG": {
             "value": "azprwehub" 
@@ -32,7 +32,7 @@
         },
         "sourceResourceIds": {
             "value": [
-                "/subscriptions/30c2b652-2898-4e2c-8e2a-27758fec3501/resourceGroups/AZPRWESAPSLES-RG/providers/Microsoft.Compute/virtualMachines/hanadev" 
+                "/subscriptions/30c2b652-2898-4e2c-8e2a-27758fec3501/rg-of-vm/providers/Microsoft.Compute/virtualMachines/vmname" 
             ]
         },
         "operationType": {
