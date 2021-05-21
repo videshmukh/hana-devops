@@ -96,7 +96,7 @@
     },
     "availabilityZone": {
       "type": "int",
-      "defaultValue": 0,
+      "defaultValue": 1,
       "minValue": 0,
       "maxValue": 3,
       "metadata": {
@@ -112,14 +112,14 @@
     },
     "Owner": {
       "type": "string",
-      "defaultValue": "SAP Team Contact",
+      "defaultValue": "Prasenjit Roy",
       "metadata": {
         "description": "Provide mandatory Owner Name"
       }
     },
     "department": {
       "type": "string",
-      "defaultValue": "20210519",
+      "defaultValue": "SAP IT",
       "metadata": {
         "description": "Provide department name"
       }
