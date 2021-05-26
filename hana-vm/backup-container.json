@@ -137,7 +137,7 @@
                     "schedulePolicyType": "SimpleSchedulePolicy",
                     "scheduleRunFrequency": "Daily",
                     "scheduleRunTimes": [
-                        "2021-05-05T19:30:00Z"
+                        "2021-05-26T19:00:00Z"
                     ],
                     "scheduleWeeklyFrequency": 0
                 },
@@ -145,7 +145,7 @@
                     "retentionPolicyType": "LongTermRetentionPolicy",
                     "dailySchedule": {
                         "retentionTimes": [
-                            "2021-05-26T19:30:00Z"
+                            "2021-05-26T19:00:00Z"
                         ],
                         "retentionDuration": {
                             "count": 7,
