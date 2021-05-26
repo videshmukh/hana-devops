@@ -66,7 +66,7 @@
         },
         {
         "apiVersion": "2019-06-15",
-        "name": "[concat(parameters('vaultName'),'/backup-', parameters('systemType'))]",
+        "name": "[concat(parameters('vaultName'),'/hdb-', parameters('systemType'))]",
         "type": "Microsoft.RecoveryServices/vaults/backupPolicies",
         "dependsOn": [
             "[concat('Microsoft.RecoveryServices/vaults/', parameters('vaultName'))]"
@@ -119,6 +119,42 @@
                         }
                     }
                 ],
+                "protectedItemsCount": 0
+            }
+        },
+               {
+        "type": "Microsoft.RecoveryServices/vaults/backupPolicies",
+        "apiVersion": "2016-06-01",
+        "name": "[concat(parameters('vaultName'),'/vm-', parameters('systemType'))]",
+        "dependsOn": [
+                "[resourceId('Microsoft.RecoveryServices/vaults', parameters('vaultName'))]"
+            ],
+        "location": "[resourceGroup().location]",
+        "properties": {
+            "backupManagementType": "AzureIaasVM",
+            "instantRPDetails": {},
+            "schedulePolicy": {
+                    "schedulePolicyType": "SimpleSchedulePolicy",
+                    "scheduleRunFrequency": "Daily",
+                    "scheduleRunTimes": [
+                        "2021-05-05T19:30:00Z"
+                    ],
+                    "scheduleWeeklyFrequency": 0
+                },
+                "retentionPolicy": {
+                    "retentionPolicyType": "LongTermRetentionPolicy",
+                    "dailySchedule": {
+                        "retentionTimes": [
+                            "2021-05-26T19:30:00Z"
+                        ],
+                        "retentionDuration": {
+                            "count": 7,
+                            "durationType": "Days"
+                        }
+                    }
+                },
+                "instantRpRetentionRangeInDays": 2,
+                "timeZone": "W. Europe Standard Time",
                 "protectedItemsCount": 0
             }
         },
