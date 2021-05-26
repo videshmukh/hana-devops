@@ -96,7 +96,7 @@
     },
     "availabilityZone": {
       "type": "int",
-      "defaultValue": 1,
+      "defaultValue": 0,
       "minValue": 0,
       "maxValue": 3,
       "metadata": {
