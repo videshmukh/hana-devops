@@ -65,7 +65,7 @@
         },
         {
         "apiVersion": "2019-06-15",
-        "name": "[concat('HANA-', '/', parameters('systemType'))]",
+        "name": "[concat(parameters('vaultName'),'/HANA-', parameters('systemType'))]",
         "type": "Microsoft.RecoveryServices/vaults/backupPolicies",
         "dependsOn": [
             "[concat('Microsoft.RecoveryServices/vaults/', parameters('vaultName'))]"
