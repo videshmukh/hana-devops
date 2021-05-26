@@ -41,7 +41,7 @@ $CONTAINER2="VMAppContainer;Compute;$VMRG;$VM"
 $ITEMSYS="saphanadatabase;$SID;systemdb"
 $ITEMTEN="saphanadatabase;$SID;$SID"
 $HANAPOL="HANA-$POL"
-$OSPOL="OS-$POL"
+$BKPPOL="backup-$POL"
 
 Write-Host "-----------------------------------------------------"
 Write-Host "-----------Get VM ID---------------------------------" 
@@ -60,8 +60,8 @@ Write-Host ""
 
     if ([string]::IsNullOrEmpty($PROTECT1)) {
         Write-Host "--------VM Backup will be enabled----------------" 
-        Write-Host "az backup protection enable-for-vm -g $RGV -v $RSV --vm $VMID --policy-name $OSPOL"
-        az backup protection enable-for-vm -g $RGV -v $RSV --vm $VMID --policy-name $OSPOL
+        Write-Host "az backup protection enable-for-vm -g $RGV -v $RSV --vm $VMID --policy-name $BKPPOL"
+        az backup protection enable-for-vm -g $RGV -v $RSV --vm $VMID --policy-name $BKPPOL
         Write-Host "-----------------------------------------------------"
     }
     else {

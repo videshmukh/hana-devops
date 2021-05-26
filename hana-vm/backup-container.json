@@ -2,20 +2,28 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "vaultName": {
-          "type": "String"
-      },
-      "vaultRG": {
-          "type": "String"
-      },
-      "vaultSubID": {
-          "type": "String"
-      },
-      "backupManagementType": {
-          "type": "String",
-          "defaultValue": "AzureWorkload"
+        "vaultName": {
+            "type": "String"
         },
-        "workloadType": {
+        "vaultRG": {
+            "type": "String"
+        },
+        "systemType": {
+            "type": "String",
+            "defaultValue": "Non-PRD",
+            "allowedValues": [
+                    "Non-PRD",
+                    "PRD"
+            ]
+        },
+        "vaultSubID": {
+            "type": "String"
+        },
+        "backupManagementType": {
+            "type": "String",
+            "defaultValue": "AzureWorkload"
+        },
+       "workloadType": {
             "type": "String",
             "defaultValue": "SAPHanaDatabase"
         },
@@ -44,9 +52,9 @@
         }
     },
     "resources": [
-         {
+        {
             "type": "Microsoft.RecoveryServices/vaults",
-            "apiVersion": "2020-02-02",
+            "apiVersion": "2017-07-01",
             "name": "[parameters('vaultName')]",
             "location": "[resourceGroup().location]",
             "sku": {
@@ -54,7 +62,65 @@
                 "tier": "Standard"
             },
             "properties": {}
-        }, 
+        },
+        {
+        "apiVersion": "2019-06-15",
+        "name": "[concat('HANA-', '/', parameters('systemType'))]",
+        "type": "Microsoft.RecoveryServices/vaults/backupPolicies",
+        "dependsOn": [
+            "[concat('Microsoft.RecoveryServices/vaults/', parameters('vaultName'))]"
+            ],
+        "location": "[resourceGroup().location]",
+        "properties": {
+            "backupManagementType": "AzureWorkload",
+            "workloadType": "SAPHanaDatabase",
+            "settings": {
+                    "timeZone": "W. Europe Standard Time",
+                    "issqlcompression": false,
+                    "isCompression": false
+                },
+            "subProtectionPolicy": [
+                    {
+                        "policyType": "Full",
+                        "schedulePolicy": {
+                            "schedulePolicyType": "SimpleSchedulePolicy",
+                            "scheduleRunFrequency": "Daily",
+                            "scheduleRunTimes": [
+                                "2020-05-26T07:00:00Z"
+                            ],
+                            "scheduleWeeklyFrequency": 0
+                        },
+                        "retentionPolicy": {
+                            "retentionPolicyType": "LongTermRetentionPolicy",
+                            "dailySchedule": {
+                                "retentionTimes": [
+                                    "2020-05-26T07:00:00Z"
+                                ],
+                                "retentionDuration": {
+                                    "count": 15,
+                                    "durationType": "Days"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "policyType": "Log",
+                        "schedulePolicy": {
+                            "schedulePolicyType": "LogSchedulePolicy",
+                            "scheduleFrequencyInMins": 30
+                        },
+                        "retentionPolicy": {
+                            "retentionPolicyType": "SimpleRetentionPolicy",
+                            "retentionDuration": {
+                                "count": 15,
+                                "durationType": "Days"
+                            }
+                        }
+                    }
+                ],
+                "protectedItemsCount": 0
+            }
+        },
         {
             "type": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers",
             "apiVersion": "2016-12-01",
