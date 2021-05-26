@@ -13,7 +13,8 @@
             "defaultValue": "Non-PRD",
             "allowedValues": [
                     "Non-PRD",
-                    "PRD"
+                    "PRD",
+                    "None"
             ]
         },
         "vaultSubID": {
