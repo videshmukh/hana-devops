@@ -44,17 +44,6 @@
         }
     },
     "resources": [
-       /*  {
-            "type": "Microsoft.RecoveryServices/vaults",
-            "apiVersion": "2020-02-02",
-            "name": "[parameters('vaultName')]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "RS0",
-                "tier": "Standard"
-            },
-            "properties": {}
-        }, */
         {
             "type": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers",
             "apiVersion": "2016-12-01",
