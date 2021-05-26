@@ -51,6 +51,9 @@ Write-Host $PROTECT
         Write-Host "----------------No Container for disabling-----------"
     }
     else {
+        
+        Write-Host "---------Disable Soft Delete Protection----------------"
+        Write-Host "az backup vault backup-properties set --soft-delete-feature-state Disable --resource-group $RGV --name $RSV"
         Write-Host "---------Found items will be disabled----------------"
         Write-Host "az backup protection disable -c '$CONTAINER2' --delete-backup-data true --item-name '$ITEMSYS' -g $RGV -v $RSV --yes"
         az backup protection disable -c "$CONTAINER2" --delete-backup-data true --item-name "$ITEMSYS" -g $RGV -v $RSV --yes
