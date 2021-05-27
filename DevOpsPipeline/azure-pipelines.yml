@@ -59,8 +59,8 @@ parameters:
   type: string
   default: "azprwesapsles-vnet/subnets/azsapdb-subnet"
   values:
-  - "SAPDemoNest/subnets/hdb-subnet"
-  - "azprwesapsles-vnet/subnets/azsapdb-subnet"
+  - "sap-devops-vnet/subnets/sapdb-subnet"
+  - "sap-devops-vnet/subnets/sapapp-subnet"
   # Adapt according to your target landing zone
   # "<VNET>/subnets/<subnet>"
 
