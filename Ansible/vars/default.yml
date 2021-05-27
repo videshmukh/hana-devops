@@ -11,9 +11,9 @@ sap_hostname:
 # url_hdbserver:
 # url_hcmt: https://softwaredownloads.sap.com/file/0020000000392012021
 # using own accessible storage account:
-url_sapcar: https://prlab.blob.core.windows.net/hanabits/archives/SAPCAR_1010-70006178.EXE
-url_hdbserver: https://prlab.blob.core.windows.net/hanabits/archives/IMDB_SERVER20_055_0-80002031.SAR
-url_hcmt: https://prlab.blob.core.windows.net/hanabits/archives/HCMT_055_0-80003261.SAR 
+url_sapcar: https://s4hanamedia.blob.core.windows.net/media/SAPCAR_1311-80000935.EXE
+url_hdbserver: https://s4hanamedia.blob.core.windows.net/media/IMDB_SERVER20_046_0-80002031.SAR
+url_hcmt: https://s4hanamedia.blob.core.windows.net/media/HCMT_055_0-80003261.SAR 
 
 url_cockpit:
 url_di_core:
