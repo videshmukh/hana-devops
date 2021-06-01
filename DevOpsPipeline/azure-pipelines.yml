@@ -107,7 +107,7 @@ trigger:
   none
 
 pool:
-  name: Default
+  name: test
 
 variables:
   backuptype: ${{ parameters.hanabackupsetup }}
